@@ -1,26 +1,18 @@
-# filename_exchange_rates = input()  # exchange.txt
-# filename_amounts = input()  # amounts.txt
-filename_exchange_rates = 'exchange.txt'
-filename_amounts = 'amounts.txt'
+try:
+    exchange_file = input()
+    amounts_file = input()
 
-dict_rates = {}
-with open(filename_exchange_rates, 'r', encoding='utf-8') as f:
-    for line in f:
-        splited_line = line.split()
-        currency_name = splited_line[0]
-        currency_change_value = splited_line[1]
-        dict_rates[currency_name] = currency_change_value
+    exchange_dict = dict()
+    with open(exchange_file, encoding='utf-8') as f:
+        for line in f:
+            exchange_dict[line.strip().split()[0]] = line.strip().split()[1]
 
-dict_amounts = {}
-test_answers = []
-with open(filename_amounts, 'r', encoding='utf-8') as f:
-    for line in f:
-        splited_line = line.split()
-        currency_name = splited_line[1]
-        currency = splited_line[0]
-        currency_value_in_bgn = currency * dict_rates[currency_name]
-        test_answers.append(currency_value_in_bgn)
-
-print(dict_rates)
-print(dict_amounts)
-print(test_answers)
+    with open(amounts_file, encoding='utf-8') as f:
+        for line in f:
+            currency_quantity = line.strip().split()[0]
+            currency_type = line.strip().split()[1]
+            course = exchange_dict[currency_type]
+            answer = float(currency_quantity) / float(course)
+            print('{:.2f}'.format(answer))
+except:
+    print('error in input nakovvica mf!')
