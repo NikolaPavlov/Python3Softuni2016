@@ -1,7 +1,8 @@
 import sys
+
+
 ERROR_MSG = 'INVALID INPUT'
 DIRECTIONS = ['left', 'right', 'up', 'down']
-
 
 try:
     # input_file = input()

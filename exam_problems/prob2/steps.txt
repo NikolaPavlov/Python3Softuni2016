@@ -5,4 +5,3 @@ right 3.772 
 up 32.9 
 left 20.6 
 down 17.8
-1 1 
